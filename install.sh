@@ -9,7 +9,7 @@ mkdir ~/.ssh; chmod 0700 ~/.ssh
 mkdir ~/ccminer
 cd ~/ccminer
 wget https://github.com/Oink70/Android-Mining/releases/download/v3.8.3-3/ccminer-3.8.3-3_ARM
-wget https://raw.githubusercontent.com/Oink70/Android-Mining/main/config.json
+wget https://raw.githubusercontent.com/TheRetroMike/VerusCliMining/main/config.json
 mv ccminer-3.8.3-3_ARM ccminer
 chmod +x ccminer
 cat << EOF > ~/ccminer/start.sh
