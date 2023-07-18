@@ -13,7 +13,7 @@ mv ccminer-3.8.3-3_ARM ccminer
 chmod +x ccminer
 cat << EOF > ~/ccminer/start.sh
 #!/bin/sh
-"~/ccminer/ccminer -c ~/ccminer/config.json
+~/ccminer/ccminer -c ~/ccminer/config.json
 EOF
 chmod +x start.sh
 
