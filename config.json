@@ -6,7 +6,7 @@
 		"timeout": 150
 	}],
 	"user": "PR86BjVTmpxiehSo3xYQuBXUEbACa5SFCC",
-	"pass": "c=PGN"
+	"pass": "c=PGN",
 	"algo": "verus",
 	"threads": 8,
 	"cpu-priority": 1,
