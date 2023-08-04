@@ -1,7 +1,7 @@
 #!/bin/sh
 sudo apt-get -y update
 sudo apt-get -y upgrade
-sudo apt-get -y install libcurl4-openssl-dev libjansson-dev libomp-dev git screen nano
+sudo apt-get -y install libcurl4-openssl-dev libjansson-dev libomp-dev git screen nano wget
 wget http://ports.ubuntu.com/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_arm64.deb
 sudo dpkg -i libssl1.1_1.1.0g-2ubuntu4_arm64.deb
 rm libssl1.1_1.1.0g-2ubuntu4_arm64.deb
@@ -13,32 +13,8 @@ GITHUB_DOWNLOAD_NAME=$(echo $GITHUB_RELEASE_JSON | jq -r ".[0].assets | .[] | .n
 
 echo "Downloading latest release: $GITHUB_DOWNLOAD_NAME"
 
-wget ${GITHUB_DOWNLOAD_URL} -P ~/ccminer
-if [ -f ~/ccminer/config.json ]
-then
-  INPUT=
-  while [ "$INPUT" != "y" ] && [ "$INPUT" != "n" ]
-  do
-    printf '"~/ccminer/config.json" already exists. Do you want to overwrite? (y/n) '
-    read INPUT
-    if [ "$INPUT" = "y" ]
-    then
-      echo "\noverwriting current \"~/ccminer/config.json\"\n"
-      rm ~/ccminer/config.json
-    elif [ "$INPUT" = "n" ]
-    then
-      echo "saving as \"~/ccminer/config.json.#\""
-    else
-      echo 'Invalid input. Please answer with "y" or "n".\n'
-    fi
-  done
-fi
-wget https://raw.githubusercontent.com/TheRetroMike/VerusCliMining/main/config.json -P ~/ccminer
-
-if [ -f ~/ccminer/ccminer ]
-then
-  mv ~/ccminer/ccminer ~/ccminer/ccminer_old
-fi
+wget ${GITHUB_DOWNLOAD_URL} -P ~/ccminer/
+wget https://raw.githubusercontent.com/TheRetroMike/VerusCliMining/main/config.json -P ~/ccminer/
 mv ~/ccminer/${GITHUB_DOWNLOAD_NAME} ~/ccminer/ccminer
 chmod +x ~/ccminer/ccminer
 
