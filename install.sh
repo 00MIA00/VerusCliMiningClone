@@ -7,10 +7,41 @@ sudo dpkg -i libssl1.1_1.1.0g-2ubuntu4_arm64.deb
 rm libssl1.1_1.1.0g-2ubuntu4_arm64.deb
 mkdir ~/ccminer
 cd ~/ccminer
-wget https://github.com/Oink70/Android-Mining/releases/download/v3.8.3-3/ccminer-3.8.3-3_ARM
-wget https://raw.githubusercontent.com/TheRetroMike/VerusCliMining/main/config.json
-mv ccminer-3.8.3-3_ARM ccminer
-chmod +x ccminer
+GITHUB_RELEASE_JSON=$(curl --silent "https://api.github.com/repos/Oink70/Android-Mining/releases?per_page=1" | jq -c '[.[] | del (.body)]')
+GITHUB_DOWNLOAD_URL=$(echo $GITHUB_RELEASE_JSON | jq -r ".[0].assets | .[] | .browser_download_url")
+GITHUB_DOWNLOAD_NAME=$(echo $GITHUB_RELEASE_JSON | jq -r ".[0].assets | .[] | .name")
+
+echo "Downloading latest release: $GITHUB_DOWNLOAD_NAME"
+
+wget ${GITHUB_DOWNLOAD_URL} -P ~/ccminer
+if [ -f ~/ccminer/config.json ]
+then
+  INPUT=
+  while [ "$INPUT" != "y" ] && [ "$INPUT" != "n" ]
+  do
+    printf '"~/ccminer/config.json" already exists. Do you want to overwrite? (y/n) '
+    read INPUT
+    if [ "$INPUT" = "y" ]
+    then
+      echo "\noverwriting current \"~/ccminer/config.json\"\n"
+      rm ~/ccminer/config.json
+    elif [ "$INPUT" = "n" ]
+    then
+      echo "saving as \"~/ccminer/config.json.#\""
+    else
+      echo 'Invalid input. Please answer with "y" or "n".\n'
+    fi
+  done
+fi
+wget https://raw.githubusercontent.com/TheRetroMike/VerusCliMining/main/config.json -P ~/ccminer
+
+if [ -f ~/ccminer/ccminer ]
+then
+  mv ~/ccminer/ccminer ~/ccminer/ccminer_old
+fi
+mv ~/ccminer/${GITHUB_DOWNLOAD_NAME} ~/ccminer/ccminer
+chmod +x ~/ccminer/ccminer
+
 cat << EOF > ~/ccminer/start.sh
 #!/bin/sh
 ~/ccminer/ccminer -c ~/ccminer/config.json
