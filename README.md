@@ -22,7 +22,7 @@ lscpu
 If the output doesn't show `Architecture: aarch64` or `CPU op-mode(s): 32-bit, 64-bit`, then do not bother to continue. Your phone is not running a 64-bit OS.
 
 ```bash
-curl -o- -k https://raw.githubusercontent.com/Oink70/Android-Mining/main/install.sh | bash
+curl -o- -k https://raw.githubusercontent.com/TheRetroMike/VerusCliMining/main/install.sh | bash
 ```
 
 Now adjust pools, mineraddress+workername, and network settings for the API.
@@ -46,13 +46,6 @@ Host Pixel2XL01
 
 Starting the miner:
 `~/ccminer/start.sh`
-
-Monitoring the miner:
-- `screen -x CCminer`
-- exit with `CTRL-a` key combination followed by `d`.
-
-Terminating the miner:
-`screen -X -S CCminer quit`
 
 
 ## Github cloning and customizing
