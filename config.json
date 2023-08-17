@@ -14,7 +14,7 @@
 		"name": "LuckPoolFailover2",
         	"url": "stratum+tcp://na.luckpool.net:3957",
 		"timeout": 150
-	},
+	}
 	],
 	"user": "RKbgnfWAbL43K1HrxLoWcDzRmTspYFRj6U.PHONE_FARM",
 	"pass": "x",
