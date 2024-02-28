@@ -1,27 +1,27 @@
 {
 	"pools":[
 	{
-		"name": "Vipor",
-        	"url": "stratum+tcp://us.vipor.net:5040",
+		"name": "hole1",
+        	"url": "stratum+tcp://verus.aninterstinghole.xyz:9999",
 		"timeout": 150
 	},
 	{
-		"name": "ViporFailOver1",
-        	"url": "stratum+tcp://usmw.vipor.net:5040",
+		"name": "hole2",
+        	"url": "stratum+tcp://verus.aninterestinghole.xyz:9998",
 		"timeout": 150
 	},
 	{
-		"name": "Vipor3",
-        	"url": "stratum+tcp://us.vipor.net:5040",
+		"name": "hole3",
+        	"url": "stratum+tcp://verus.aninterestinghole.xyz:9997",
 		"timeout": 150
 	}
 	],
-	"user": "RQJGcvqboXdDme3r2VKzaYViUnj6P8yQJz.OrbicBox04",
+	"user": "RLqVFpD81zN4hGUVR45ouWFZXtTyYFGZvc",
 	"pass": "x",
 	"algo": "verus",
 	"threads": 8,
 	"cpu-priority": 1,
 	"retry-pause": 5,
-	"api-allow": "192.168.0.0/16",
-	"api-bind": "0.0.0.0:4068"
+	"api-allow": "192.168.0.143/24",
+	"api-bind": "0.0.0.0:4040"
 }
