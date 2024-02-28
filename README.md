@@ -34,13 +34,13 @@ nano config.json
 ## Usage:
 start mining with `~/ccminer/start.sh`
 
-Standard SSH port for Userland is port `2022`.
+Standard SSH port for Userland is port `4040`.
 Optional: create an entry in your SSH config file for each phone:
 ```
 Host Pixel2XL01
-    Hostname 192.168.25.81
-    Port 2022
-    User Pixel2XL01
+    Hostname 192.168.0.143
+    Port 4040
+    User LG V20
     IdentityFile ~\.ssh\id-rsa_oink-private
 ```
 
