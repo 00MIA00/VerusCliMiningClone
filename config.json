@@ -11,8 +11,8 @@
 		"timeout": 150
 	},
 	{
-		"name": "hole3",
-        	"url": "stratum+tcp://verus.aninterestinghole.xyz:9997",
+		"name": "verus pool",
+        	"url": "stratum+tcp://pool.verus.io:9999",
 		"timeout": 150
 	}
 	],
