@@ -6,8 +6,8 @@
 		"timeout": 150
 	},
 	{
-		"name": "hole2",
-        	"url": "stratum+tcp://verus.aninterestinghole.xyz:9998",
+		"name": "viper",
+        	"url": "stratum+tcp://usw.vipor.net:5040",
 		"timeout": 150
 	},
 	{
