@@ -2,7 +2,7 @@
 	"pools":[
 	{
 		"name": "hole1",
-        	"url": "stratum+tcp://verus.aninterestinghole.xyz:9999",
+        	"url": "stratum+tcp://verus.XXXaninterestinghole.xyz:9999",
 		"timeout": 150
 	},
 	{
